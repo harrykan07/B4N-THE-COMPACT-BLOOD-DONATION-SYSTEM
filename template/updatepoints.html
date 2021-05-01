@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container">
+    {% if check %}
+    <h2 class="text-success">Points Updated.</h2>
+    {% else %}
+    <form action = "" method = "POST">
+        {% csrf_token %} 
+        <div class="form-group">
+            <label for="pid" class="form-label">Points ID: </label>
+            <input id="pid" class = "form-control" type="text" name="pid" required>
+        </div>
+        <div class="form-group">
+            <label for="ppoints" class="form-label">Points: </label>
+            <input id="ppoints" class = "form-control" type="number" name="ppoints" required>
+        </div>
+        <input type="submit" value="OK">
+    </form>
+    {% endif %}
+</div>
+
+{% endblock  %}

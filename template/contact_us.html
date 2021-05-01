@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="about_page">
+    <div class = "Contact_body">
+    <!-- page image -->
+    <header id="page-header">
+        <div class="col-md-6 m-auto text-center text-light">
+            <h1>Contact Us</h1>
+            <p class="lead">Anybody Can Give Blood.
+            <br>"Tears Of A Mother Cannot Save Her Child. But Your Blood Can."</p>
+        </div>
+    </header>
+
+    <!-- address -->
+    <div class="address text-center">
+        <address class="p-5 font-weight-bold">{{ contact.contact_text }}</address>
+    </div>
+    </div>
+</div>
+
+
+{% endblock  %}

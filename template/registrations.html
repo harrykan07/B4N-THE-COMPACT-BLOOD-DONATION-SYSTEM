@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1 class="text-center">WELCOME ABOARD!</h1>
+            <br>
+            <h2 class="text-center">Details about {{forms.name.data}}</h2>
+
+            <div class= "donor_details mx-auto">
+                <p><strong>Name:</strong> {{forms.name.data}}</p>
+                <p><strong>Gender:</strong> {{forms.gender.data}}</p>
+                <p><strong>Date Of Birth:</strong> {{forms.date_of_birth.data}}</p>
+                <p><strong>Blood Type:</strong> <span class="text-uppercase">{{forms.blood_group.data}}</span></p>
+                <p><strong>Phone Number:</strong> {{forms.phone_number.data}}</p>
+                <p><strong>Email:</strong> {{forms.email.data}}</p>
+                <p><strong>Occupation:</strong> {{forms.occupation.data}}</p>
+                <p><strong>Home Address:</strong> {{forms.home_address.data}}</p>
+                <p><strong>Blood Donated Last Date:</strong> {{forms.last_donate_date.data}}</p>
+                <p><strong>Any Diseases:</strong> {{forms.any_diseases.data}}</p>
+                <p><strong>Allergies:</strong> {{forms.allergies.data}}</p>
+                <p><strong>Cardiac:</strong> {{forms.cardiac.data}}</p>
+                <p><strong>Bleeding Disorders:</strong> {{forms.bleeding_disorders.data}}</p>
+                <p><strong>HBSAG HCV HIV:</strong> {{forms.hbsAg_hcv_hIV.data}}</p>
+                <p><strong>WILLING TO DONATE PLASMA:</strong> {{forms.willing_to_donate_plasma.data}}</p>
+        </div>
+
+            <h3 class="text-center">{{forms.name.data}}, Your Registration Is Successful!</h3>
+            <p>Now you can go ahead and login to your personal space!</p>
+
+        </div>
+
+    </div>
+
+
+
+
+{% endblock  %}

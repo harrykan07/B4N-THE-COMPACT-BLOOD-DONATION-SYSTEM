@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<!-- Carousel  -->
+<div class="carousel_slid">
+    {% comment %} <div class="opacity_carousel"></div> {% endcomment %}
+    <div id="slide" class="carousel slide" data-ride="carousel">
+         <!-- carousel indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#slide" data-slide-to="0" class="active"></li>
+            <li data-target="#slide" data-slide-to="1"></li>
+            <li data-target="#slide" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner">
+            <div class="carousel-item carousel-img-1 active">
+                 <img src="{{ home_slider.slider_1.url }}" alt="Slid Image">
+                <div class="carousel-caption text-dark">
+                    <h3>Why do we donate blood?</h3>
+                    <p>Donating just one pint of blood can save more than one person's life.</p>
+                </div>
+            </div>
+            <!-- carousel item -->
+            <div class="carousel-item carousel-img-2">
+                <img src="{{ home_slider.slider_2.url }}" alt="Slid Image">
+                <div class="carousel-caption text-danger">
+                    <h3>Why do we donate blood?</h3>
+                    <p>Whenever you donate blood, you’re giving someone the opportunity to have a new lease on life, not to mention that you’re also giving your overall health a great boost.</p>
+                </div>
+            </div>
+            <div class="carousel-item carousel-img-3">
+                <img src="{{ home_slider.slider_3.url }}" alt="Slid Image">
+                <div class="carousel-caption text-info">
+                    <h3>Why do we donate blood?</h3>
+                    <p>It is not more painful than losing a loved one that you may save by donating!</p>
+                </div>
+            </div>
+        </div>
+        <!-- carousel control -->
+        <a class="carousel-control-prev" href="#slide" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#slide" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div>
+
+<!--1st post -->
+<div class="post clearfix container-fluid">
+    <!-- post for image -->
+    <div class="row">
+        <div class="postimg col text-center">
+            <img src="{{ our_vision.body_img.url }}" class="img-thumbnail" alt="Post 1st image">
+        </div>
+
+        <!-- post for blog -->
+        <div class="post_dec col text-center">
+            <h2 class="font-weight-bold">{{ our_vision.title }}</h2>
+            <p class="text-break">{{ our_vision.body_text }}</p>
+        </div>
+    </div>
+</div>
+
+<!-- 2nd post -->
+<div class="post2 clearfix container-fluid">
+    <!-- pors for image -->
+    <div class="row">
+        
+        <!-- post for blog -->
+        <div class="post_dec2 col text-center">
+            <h2 class="font-weight-bold">{{ donor_opinion.title }}</h2>
+            <p class="text-break text-justify">{{ donor_opinion.body_text }}</p>
+        </div>
+        <div class="postimg2 col text-center">
+            <img src="{{ donor_opinion.body_img.url }}" class="img-thumbnail" alt="Post 1st image">
+        </div>
+    </div>
+</div>
+ 
+<!-- 3dr post -->
+<div class="post3 clearfix container-fluid">
+    <!-- post for image -->
+    <div class="row">
+        <div class="postimg3 col text-center">
+            <img src="{{ user_opinion.body_img.url }}" class="img-thumbnail rounded mx-auto d-block" alt="Post 1st image">
+        </div>
+        <!-- post for blog -->
+        <div class="post_dec3 col text-center">
+            <h2 class="font-weight-bold">{{ user_opinion.title }}</h2>
+            <p class="text-justify">{{ user_opinion.body_text }}</p>
+        </div>
+    </div>
+</div>
+    
+
+{% endblock %}
+

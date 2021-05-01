@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="jumbotron">
+        {% if uploaded_file_url %}
+        <h2>File has been submitted for review.<br>
+            Points will be updated for your id as soon as it is confirmed.</h2>
+        {% else %}
+          <div class="form_body">
+             <h1 class="text-center">Kindly Update donation details for {{donor.name}}</h1>
+            
+                <div class= "donor_details m-5">
+                    <p>Please upload documents received from hospital for review.</p>
+                    <p>It is needed to confirm your donation.</p>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="file" name="myfile">
+                        <button type="submit">Upload</button>
+                    </form>
+                </div>
+                {% endif %}
+         </div>
+    </div>
+</div>
+        
+        {% endblock  %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="jumbotron text-center">
+  <p>You have been logged out! Feel free to return!</p>
+  <a href="{% url 'login'%}">Click here to login again.</a>
+  </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h2 class="text-center mb-3">DONOR REGISTRATION FORM</h2>
+            <form action="{% url 'dregdisplay' %}" method="post">
+                {% csrf_token %}
+                {{forms.as_p}}
+                <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock  %}

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+        <div class="jumbotron">
+            <h1 class="text-center">POINTS PAGE</h1>
+
+            <div class= "donor_details mx-auto mt-5" >
+                <p><strong>Name:</strong> {{details.name}}</p>
+                <p><strong>Total Points:</strong> {{details.points}}</p>
+                <p><i>You can easily redeem points from any of the below available options!</i></p>
+        </div>
+        </div>
+        <div class="container mt-5">
+                <div class="row">
+        
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-3">
+                        <div class="card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Hospital_sign.svg/451px-Hospital_sign.svg.png"
+                                class="card-img-top responsive">
+                            <div class="card-body">
+                                <h5 class="card-title">5% Discount on OPD Charges</h5>
+                                <p class="card-text">Get flat 5% off upto &#x20B9; 500 on OPD charges in any hospital.</p>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <i class="fas fa-coins m-1"></i> 300 coins
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-3">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/0252/1825/2909/products/4K8A9818-1-1_345x345@2x.jpg?v=1594136566"
+                                class="card-img-top responsive">
+                            <div class="card-body">
+                                <h5 class="card-title">Get Flat 25% Off @ Plattered</h5>
+                                <p class="card-text">Get Flat 25% off Site-Wide.</p>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <i class="fas fa-coins m-1"></i> 50 coins
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-3">
+                        <div class="card">
+                            <img src="https://im.whatshot.in/img/2020/Feb/cookie1-1582797857.jpg"
+                                class="card-img-top responsive">
+                            <div class="card-body">
+                                <h5 class="card-title">Flat 15% Off @ Scoopski's</h5>
+                                <p class="card-text">Dough not miss out on the chance to get India's most indulgent dessert! Avail this offer to get a flat 15% off on the entire website</p>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <i class="fas fa-coins m-1"></i> 9 coins
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-3">
+                        <div class="card">
+                            <img src="https://i.pinimg.com/originals/08/5f/d8/085fd8f7819dee3b716da73d3b2de61c.jpg"
+                                class="card-img-top responsive">
+                            <div class="card-body">
+                                <h5 class="card-title">Get &#x20B9;100 Amazon Coupon</h5>
+                                <p class="card-text">Shop from Amazon.in for variety of Occassions. Go Cashless! Best Deals. Low Prices. Great Offers. No Cost EMI Available. Huge Selection. Easy & Fast Delivery. Top Brands.
+                                </p>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <i class="fas fa-coins m-1"></i> 450 coins
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-3">
+                        <div class="card">
+                            <img src="https://imgmedia.lbb.in/media/2019/05/5ce2470eecde370f6004ed80_1558333198869.jpg"
+                                class="card-img-top responsive">
+                            <div class="card-body">
+                                <h5 class="card-title">Flat 20% Off @ Dr. Sheths's</h5>
+                                <p class="card-text">Dr. Sheth’s is a dermatologist formulated luxury skincare range designed exclusively for Indian skin by three generations of skin doctors.</p>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <i class="fas fa-coins m-1"></i> 50 coins
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-3">
+                        <div class="card">
+                            <img src="data:image/png;base64,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"
+                                class="card-img-top responsive">
+                            <div class="card-body">
+                                <h5 class="card-title">Get Flat 20% Off @ Fit & Flex</h5>
+                                <p class="card-text">Experience the goodness of wholesome crunchy Granola with added prebiotic fiber and freezed dried real fruits.</p>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <i class="fas fa-coins m-1"></i> 49 coins
+                            </div>
+                        </div>
+                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+                        crossorigin="anonymous"></script>
+                </div>
+            </div>
+</div>
+{% endblock  %}

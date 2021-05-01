@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper-1.14.7.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'photos/logo/searchlogo.jpg' %}">
+ 
+    <title>B4N</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- head title -->
+        <header>
+            <h5 class="head text-white text-center p-3">BLEED FOR A NEED</h5>
+        </header>
+
+            {% comment %} <div id="navvy"> {% endcomment %}
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="navbar-brand" href="{% url 'homesite1' %}">
+                            <img src="{% static 'photos/logo/searchlogo.jpg' %}" alt="logo" style="width:60px;">                      
+                        </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link font-weight-bolder" href="{% url 'homesite1' %}">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bolder" href="{% url 'searchsite1' %}">Search</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bolder" href="{% url 'dregsite' %}">Donor Registration</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bolder" href="{% url 'contactsite1' %}">Contact Us</a>
+                        </li>
+                        <li class="nav-item font-weight-bolder">
+                             <a class="nav-link" href="{% url 'aboutsite1' %}">About Us</a>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle font-weight-bolder" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                LogIn
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item font-weight-bolder" href="/admin/">Admin</a>
+                                <a class="dropdown-item font-weight-bolder" href="/admin/">Donor</a>
+                            </div>
+                            {% comment %} <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            </div> {% endcomment %}
+                        </li>
+                        {% comment %} <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                        </li> {% endcomment %}
+                        </ul>
+                        </form>
+                    </div>
+                </nav>
+
+                {% comment %} </div> {% endcomment %}
+            
+
+             <!-- navbar -->
+        {% comment %} <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+
+            <!-- logo -->
+            <a class="navbar-brand ml-5" href="#">
+                <img src="{% static 'photos/logo/searchlogo.jpg' %}" alt="logo" style="width:60px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- navbar item -->
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav flex-row-reverse">
+                    <li class="nav-item text-dark">
+                        <a class="nav-link font-weight-bolder" href="{% url 'aboutsite1' %}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bolder" href="{% url 'contactsite1' %}">Contact Us</a>
+                    </li>
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link font-weight-bolder" href="#" data-toggle="dropdown">
+              Log In
+            </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item font-weight-bolder" href="/admin/">Admin</a>
+                            <a class="dropdown-item font-weight-bolder" href="/admin/">Donor</a>
+                        </div>
+                        
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bolder" href="{% url 'dregsite' %}">Donor Registration</a>
+                    </li>
+                    <li class="nav-item font-weight-bolder">
+                        <a class="nav-link" href="{% url 'searchsite1' %}">Search</a>
+                    </li>
+                    <li class="nav-item font-weight-bolder">
+                        <a class="nav-link" href="{% url 'homesite1' %}">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </nav> {% endcomment %}
+
+
+
+
+
+
+        <!-- Carousel  -->
+        <div class="carousel_slid">
+            {% comment %} <div class="opacity_carousel"></div> {% endcomment %}
+            <div id="slide" class="carousel slide" data-ride="carousel">
+                 <!-- carousel indicators -->
+                <ul class="carousel-indicators">
+                    <li data-target="#slide" data-slide-to="0" class="active"></li>
+                    <li data-target="#slide" data-slide-to="1"></li>
+                    <li data-target="#slide" data-slide-to="2"></li>
+                </ul>
+                <div class="carousel-inner">
+                    <div class="carousel-item carousel-img-1 active">
+                         <img src="{{ home_slider.slider_1.url }}" alt="Slid Image">
+                        <div class="carousel-caption text-dark">
+                            <h3>Why do we donate blood?</h3>
+                            <p>Donating just one pint of blood can save more than one person's life.</p>
+                        </div>
+                    </div>
+                    <!-- carousel item -->
+                    <div class="carousel-item carousel-img-2">
+                        <img src="{{ home_slider.slider_2.url }}" alt="Slid Image">
+                        <div class="carousel-caption text-danger">
+                            <h3>Why do we donate blood?</h3>
+                            <p>Whenever you donate blood, you’re giving someone the opportunity to have a new lease on life, not to mention that you’re also giving your overall health a great boost.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-img-3">
+                        <img src="{{ home_slider.slider_3.url }}" alt="Slid Image">
+                        <div class="carousel-caption text-info">
+                            <h3>Why do we donate blood?</h3>
+                            <p>It is not more painful than losing a loved one that you may save by donating!</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- carousel control -->
+                <a class="carousel-control-prev" href="#slide" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#slide" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </div>
+
+        {% block content %} 
+        
+        
+        {% endblock %}
+
+        <!-- footer -->
+        <div class="footer clearfix">
+            <p class="text-center text-white p-2">
+                B4N Blood Donation System
+                <br> We thrive to connect blood donors and recipients within no time!
+                <br> Our service is our identity!
+                <br> 
+                <br>
+
+            </p>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

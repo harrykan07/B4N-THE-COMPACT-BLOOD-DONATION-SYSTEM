@@ -1,0 +1,203 @@
+/* index */
+.head {
+  background-color: #ff3333 ;
+  height: 60px;
+}
+
+/* .navbar {
+  background: white;
+  height: 96px;
+}
+
+.nav-link {
+  color: black;
+  font-size: 17px;
+  padding: 0px;
+  margin-right: 28px;
+}
+
+.nav-item a:hover {
+  color: #FF0000;
+}
+
+.dropdown-menu {
+  border: 0px;
+}
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+*/
+
+.carousel-item {
+  height: 450px;
+}
+
+.carousel-img-1 {
+  background-size: 100% 100%;
+}
+
+.carousel-img-2 {
+  background-size: 100% 100%;
+}
+
+.carousel-img-3 {
+  background-size: 100% 100%;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel_slid {
+  height: 450px;
+  position: relative;
+}
+
+.opacity_carousel {
+  background: rgb(0,0,0);
+  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.carousel-control-prev, .carousel-control-next {
+  z-index: 11;
+}
+
+.post {
+  width: auto;
+  height: 500px;
+  margin-top: 150px;
+}
+
+.postimg, .postimg3 {
+  width: 450px;
+  height: 233px;
+  padding: 5px;
+  margin-left: 30px;
+}
+
+.post_dec h2, .post_dec2 h2, .post_dec3 h2 {
+  color: #3333cc;
+}
+
+.post_dec, .post_dec3 {
+  padding: 5px;
+  margin-right: 30px;
+  margin: 5px;
+  width: 600px;
+}
+
+.post2, .post3 {
+  width: auto;
+  height: 600px;
+  margin-top: 300px;
+}
+
+.post_dec2 {
+  padding: 5px;
+  padding-left: 80px;
+  margin: 5px;
+  width: 600px;
+}
+
+.postimg2 {
+  width: 450px;
+  height: 233px;
+  padding: 5px;
+  margin-right: 30px;
+} 
+
+.footer {
+  background-color:  #ff3333;
+  height: 120px;
+  margin-top: 88px;
+}
+
+/* address */
+.address {
+  height: 200px;
+}
+
+#page-header {
+  background: url(../photos/slide1.png);
+  background-size: cover;
+  height: 300px;
+  padding-top: 50px;
+  background-attachment: fixed;
+  margin-bottom: 50px;
+}
+
+#page-header_1 {
+  background: url(../photos/slide1.png);
+  background-size: cover;
+  height: 300px;
+  padding-top: 50px;
+  background-attachment: fixed;
+  margin-bottom: 50px;
+}
+
+/* Registration */
+.form_body {
+  width: 750px;
+  margin-left: 296px;
+}
+
+.blood_group {
+  margin-left: 286px;
+}
+
+.email_group {
+  margin-left: 268px;
+}
+
+.reg_btn {
+  background-color: #3333ff;
+  color: white;
+}
+
+/* search */
+.search {
+  width: 500px;
+  height: 600px;
+  margin-left: 400px;
+}
+
+.search img {
+  margin-left: 139px;
+}
+
+.search_bt {
+  background-color: #3333ff;
+  color: white;
+  margin-left: 215px;
+}
+
+
+
+.donor_details {
+  width: 550px;
+  padding: 20px;
+  padding-left: 156px;
+}
+
+.theadcolor {
+  background-color: #3333ff;
+}
+
+.donor_list {
+  height: 600px;
+}
+
+.Contact_body {
+  height: 600px;
+}
+
+.about_page {
+  height: 600px;
+}

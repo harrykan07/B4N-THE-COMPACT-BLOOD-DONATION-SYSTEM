@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <!-- Search -->
+    <div class="container-fluid">
+      <div class="jumbotron">
+      {% comment %} <img src="{{ logo_img.logo_image.url }}" class="rounded-circle" alt="Logo" width="221" height="227"> {% endcomment %}
+      <img src="{{ logo_img.logo_image.url }}" class="rounded mx-auto d-block mt-5" alt="Logo">
+      <br />
+      <form action="{% url 'donorlistsite' %}" method="POST">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-sm-4 mx-auto">
+              {{forms_search.select_blood_group}}
+            </div>
+            <div class="col-sm-4 mx-auto">
+              {{forms_search.units}}
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-sm-4 mx-auto">
+              {{forms_search.select_location}}
+            </div>
+            <div class="col-sm-4 mx-auto">
+              {{forms_search.city}}
+            </div>
+          </div>
+          <br />
+          <div class="input-group col-sm-3 mx-auto mb-4">
+            {{forms_search.mobile_no}}
+          </div>
+          <div class="text-center">
+        <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+      </form>
+      </div>
+    </div>
+
+
+   {% endblock  %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+        <div class="jumbotron">
+            <h1 class="text-center mt-3"><u>Details about {{details.name}}</u></h1>
+
+            <div class= "donor_details mx-auto mt-3">
+                <p><strong>Name:</strong> {{details.name}}</p>
+                <p><strong>Gender:</strong> {{details.gender}}</p>
+                <p><strong>Date Of Birth:</strong> {{details.date_of_birth}}</p>
+                <p><strong>Blood Group:</strong> <span class="text-uppercase">{{details.blood_group}}</span></p>
+                <p><strong>Phone Number:</strong> {{details.phone_number}}</p>
+                <p><strong>Email:</strong> {{details.email}}</p>
+                <p><strong>Occupation:</strong> {{details.occupation}}</p>
+                <p><strong>Home Address:</strong> {{details.home_address}}</p>
+                <p><strong>Blood Donated Last Date:</strong> {{details.last_donate_date}}</p>
+                <p><strong>Any Diseases:</strong> {{details.any_diseases}}</p>
+                <p><strong>Allergies:</strong> {{details.allergies}}</p>
+                <p><strong>Cardiac:</strong> {{details.cardiac}}</p>
+                <p><strong>Bleeding Disorders:</strong> {{details.bleeding_disorders}}</p>
+                <p><strong>HBSAG HCV HIV:</strong> {{details.hbsAg_hcv_hIV}}</p>
+           </div>
+        </div>
+</div>
+
+
+
+{% endblock  %}
+
