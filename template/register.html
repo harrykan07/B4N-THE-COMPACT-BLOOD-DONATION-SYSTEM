@@ -3,19 +3,26 @@
 
 {% block content %}
 
-
+    {% load static %}
+    {% load mapbox_location_field_tags %} 
+    {% location_field_includes %}
+    {% include_jquery %}
     <div class="container-fluid">
-        <div class="jumbotron">
-            <h2 class="text-center mb-3">DONOR REGISTRATION FORM</h2>
+        <div class="jumbotron reg"> 
+            {% comment %} <div style="background-image:url('D:\COG-PRO\b4n-blood-donation\b4n-blood-donation\static\photos\reg_background.jpeg');"> {% endcomment %}
+            <div class="text-center"><img class="img-responsive" src="{% static 'photos/signup-char.png' %}" alt="Chania"> </div>
+            <h2 class="text-center mb-3 mt-5">DONOR REGISTRATION FORM</h2>
             <form action="{% url 'dregdisplay' %}" method="post">
                 {% csrf_token %}
                 {{forms.as_p}}
                 <div class="text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+                </div> 
             </form>
+            {{ forms.media }}
+            <div>
         </div>
     </div>
 
-
+ 
 {% endblock  %}

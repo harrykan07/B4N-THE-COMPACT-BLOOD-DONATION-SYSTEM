@@ -4,6 +4,10 @@
   height: 60px;
 }
 
+.reg
+{
+  background-image:url('D:\COG-PRO\b4n-blood-donation\b4n-blood-donation\static\photos\reg_background.jpeg');
+}
 /* .navbar {
   background: white;
   height: 96px;

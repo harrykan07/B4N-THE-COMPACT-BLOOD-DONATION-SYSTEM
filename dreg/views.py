@@ -3,7 +3,32 @@ from django.contrib.auth.models import User
 from .forms import DonorRegistration
 from .models import DonorList
 
+#FOR MAPS
+from django.views.generic import CreateView, UpdateView, ListView
 
+
+
+class AddPlaceView(CreateView):
+    model = DonorList
+    template_name = "register.html"
+    # success_url = "/index/"
+    fields = ("location", "address")
+
+
+# class ChangePlaceView(UpdateView):
+#     model = DonorList
+#     template_name = "live_demo/place_form.html"
+#     success_url = "/index/"
+#     fields = ("location", "address")
+
+
+# class PlacesView(ListView):
+#     model = DonorList
+#     template_name = "live_demo/index.html"
+#     ordering = ["-created_at", ]
+
+
+#MAP END
 #Donnor forms display
 def donorregdisplay(request):
     forms = DonorRegistration()
@@ -29,6 +54,6 @@ def donorregdisplay(request):
                 'forms' : forms,
             }
 
-
+            
     return render(request, 'register.html', context)
 

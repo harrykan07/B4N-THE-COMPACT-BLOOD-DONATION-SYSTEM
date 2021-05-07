@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'dreg',
     'dabout',
     'contact',
+    'mapbox_location_field',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,5 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+MAPBOX_KEY = "pk.eyJ1IjoidXNlci04OTA3ODgiLCJhIjoiY2tvZWN2aDUzMDVobDJwanpleG1xcDU0byJ9.1j277HsrvMVFo7EIqvg9BA"

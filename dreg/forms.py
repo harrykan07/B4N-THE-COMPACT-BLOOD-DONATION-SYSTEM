@@ -1,8 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from .models import DonorList
-    
-    
+
 #Donor registrarion forms create
 class DonorRegistration(ModelForm):
     class Meta:
@@ -23,6 +22,7 @@ class DonorRegistration(ModelForm):
             'cardiac' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
             'bleeding_disorders' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
             'hbsAg_hcv_hIV' : forms.Select(attrs={'class':'form-control', 'required':'True'}), 
+            'willing_to_donate_plasma' : forms.Select(attrs={'class':'form-control', 'required':'True'}), 
         }
     password = forms.CharField(max_length=32, widget=forms.PasswordInput(
         attrs={'class':'form-control', 'placeholder':'Enter password used for login','required':'True'}

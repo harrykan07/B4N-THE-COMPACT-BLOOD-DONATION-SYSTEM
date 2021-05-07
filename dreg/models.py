@@ -1,5 +1,5 @@
 from django.db import models
-
+from mapbox_location_field.models import LocationField, AddressAutoHiddenField
 
 #Donor resistration forms data table
 class DonorList(models.Model):
@@ -31,7 +31,10 @@ class DonorList(models.Model):
     phone_number = models.IntegerField(blank=True, null=True)
     email = models.EmailField(max_length=100, blank=True, null=True, unique=True)
     occupation = models.CharField(max_length=10, blank=True, null=True)
-    home_address = models.TextField(blank=True, null=True)
+    # home_address = models.TextField(blank=True, null=True)
+    location = LocationField(blank=True, null=True, map_attrs={"style": "mapbox://styles/mightysharky/cjwgnjzr004bu1dnpw8kzxa72", "center": (17.031645, 51.106715)})
+    created_at = models.DateTimeField(blank=True, null=True, auto_now_add=True)
+    address = AddressAutoHiddenField(blank=True, null=True)
     last_donate_date = models.CharField(max_length=50, blank=True, null=True)
     any_diseases_choices=[
         ("yes","Yes"),

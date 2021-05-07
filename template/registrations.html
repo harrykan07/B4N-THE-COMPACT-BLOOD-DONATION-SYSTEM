@@ -16,7 +16,9 @@
                 <p><strong>Phone Number:</strong> {{forms.phone_number.data}}</p>
                 <p><strong>Email:</strong> {{forms.email.data}}</p>
                 <p><strong>Occupation:</strong> {{forms.occupation.data}}</p>
-                <p><strong>Home Address:</strong> {{forms.home_address.data}}</p>
+                {% comment %} <p><strong>Home Address:</strong> {{forms.home_address.data}}</p> {% endcomment %}
+                <p><strong>Address Coordinates:</strong> {{forms.location.data}}</p>
+                <p><strong>Mapped Address:</strong> {{forms.address.data}}</p>
                 <p><strong>Blood Donated Last Date:</strong> {{forms.last_donate_date.data}}</p>
                 <p><strong>Any Diseases:</strong> {{forms.any_diseases.data}}</p>
                 <p><strong>Allergies:</strong> {{forms.allergies.data}}</p>
@@ -27,7 +29,7 @@
         </div>
 
             <h3 class="text-center">{{forms.name.data}}, Your Registration Is Successful!</h3>
-            <p>Now you can go ahead and login to your personal space!</p>
+            <h4 class="text-center">Now you can go ahead and login to your personal space!</h4>
 
         </div>
 
