@@ -1,1 +1,4 @@
-".env" 
+.env
+.gitignore
+.code-workspace
+__pycache__\

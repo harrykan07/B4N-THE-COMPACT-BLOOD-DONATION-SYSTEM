@@ -1,3 +1,4 @@
+import threading
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .forms import DonorSearch
@@ -7,21 +8,36 @@ from .models import Points
 from .models import RequestedRecord
 from .NotifyDonor import notify_donor
 from django.core.files.storage import FileSystemStorage
+from .NotifyDonor import increaseArea
 
+#FOR MAPS
+from django.views.generic import CreateView, UpdateView, ListView
+
+
+
+class AddPlaceView(CreateView):
+    model = RequestedRecord
+    template_name = "search.html"
+    # success_url = "/index/"
+    fields = ("location", "address")
+
+# def pendingRequestProcessor():
+#     threading.Timer(5,increaseArea).start()
+# pendingRequestProcessor()
 
 def searchdisplay(request):
-    search_forms = DonorSearch()
+    forms = DonorSearch()
     logo_img = SearchLogo.objects.get(logo_number=1)
     if request.method == 'POST':
-        search_forms = DonorSearch(request.POST)
-        if search_forms.is_valid():
-            notify_donor(search_forms.cleaned_data)
+        forms = DonorSearch(request.POST)
+        if forms.is_valid():
+            notify_donor(forms.cleaned_data,forms)
             return render(request,'reqAccepted.html')
         else:
             return render(request,'errorPage.html')
 
     context = {
-        'forms_search' : search_forms,
+        'forms_search' : forms,
         'logo_img' : logo_img
     }
     return render(request, 'search.html' ,context)
@@ -36,7 +52,14 @@ def donorlistdetail(request, email):
     return render(request, 'information.html', context)
 
 
+# @login_required
 def donorupdate(request, cid):
+    detail = Points.objects.get(pk=cid)
+    req = detail.req_id
+    if req.status == "donor":
+        return render(request, 'donorAccepted.html')
+    elif req.status == "success":
+        return render(request, 'requestCompleted.html')
     if request.method == 'POST' and request.FILES['myfile']:
         rec = request.FILES['myfile']
         fs = FileSystemStorage()
@@ -46,13 +69,19 @@ def donorupdate(request, cid):
             'uploaded_file_url': uploaded_file_url
         })
     try:
-        detail = Points.objects.get(pk=cid)
         if detail.points != 0:
             return render(request, 'updatesucess.html')
         donor_id = detail.donor_id.id
+
+        # # verify logged user is one who received sms
+        # if donor_id != request.user.last_name:
+        #     return render(request, 'errorPage.html')
         req_id = detail.req_id.id
         donor = DonorList.objects.get(pk=donor_id)
         receipt = RequestedRecord.objects.get(pk=req_id)
+
+        #changing status to donor since donor may have accepted request
+        RequestedRecord.objects.filter(pk=req_id).update(status="donor")
         context = {
             'donor' : donor,
             'receipt' : receipt
@@ -60,13 +89,20 @@ def donorupdate(request, cid):
         return render(request, 'donorupdate.html', context)
     except BaseException as e:
         print(e)
-        return render(request, 'errorPage.html', context)
+        return render(request, 'errorPage.html')
 
 def updatepoints(request):
     if request.method == 'POST':
         d = request.POST
-        pointsObj = Points.objects.filter(pk=d['pid']).update(points=int(d['ppoints']))
-        return render(request,"updatepoints.html",{'check':True})
+        msg = ""
+        bClass = 'text-danger'
+        try:
+            pointsObj = Points.objects.filter(pk=d['pid'])
+            Points.objects.filter(pk=d['pid']).update(points=int(d['ppoints']))
+            msg = "Points Updated"
+            bClass = 'text-success'
+        except: msg="Given points id not found"
+        return render(request,"updatepoints.html",{'check':True,'msg':msg,'bClass':bClass})
     return render(request,"updatepoints.html")
 
 @login_required
