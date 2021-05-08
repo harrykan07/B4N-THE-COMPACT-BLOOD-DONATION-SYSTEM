@@ -4,28 +4,15 @@ from .forms import DonorRegistration
 from .models import DonorList
 
 #FOR MAPS
-from django.views.generic import CreateView, UpdateView, ListView
+from django.views.generic import CreateView
 
 
 
-class AddPlaceView(CreateView):
-    model = DonorList
-    template_name = "register.html"
-    # success_url = "/index/"
-    fields = ("location", "address")
-
-
-# class ChangePlaceView(UpdateView):
+# class AddPlaceView(CreateView):
 #     model = DonorList
-#     template_name = "live_demo/place_form.html"
-#     success_url = "/index/"
+#     template_name = "register.html"
+#     # success_url = "/index/"
 #     fields = ("location", "address")
-
-
-# class PlacesView(ListView):
-#     model = DonorList
-#     template_name = "live_demo/index.html"
-#     ordering = ["-created_at", ]
 
 
 #MAP END
@@ -39,11 +26,16 @@ def donorregdisplay(request):
             password = forms.cleaned_data['password']
             email = forms.cleaned_data['email']
             name = forms.cleaned_data['name']
+
+            # registering donor in user model
             user = User.objects.create_user(email, email, password)
             user.first_name = name
             user.last_name = donor.id
             user.save()
-            print(forms.errors)
+            if forms.errors:
+                print("[Registration failed]",forms.errors)
+            else:
+                print("[Registration success] user with id",donor.id,"created")
             context_details ={
                 'forms' : forms
             }

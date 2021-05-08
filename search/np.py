@@ -1,11 +1,12 @@
 from twilio.rest import Client #pip install twilio
 from random import randint
 class Notify:
-    def __init__(self,accountID,authToken,from_ = None):
+    def __init__(self,accountID,authToken,from_ = None, enableLog = True):
         self.__accountID = accountID
         self.__authToken = authToken
         self.__client = Client(self.__accountID,self.__authToken)
         self.__from = from_
+        self.__enableLog = enableLog
         if from_ == None:
             self.__from = '+18625052631'
         self.__status = None
@@ -13,7 +14,10 @@ class Notify:
     def send_sms(self,to,body):
         try:
             self.__status = self.__client.messages.create(body=body, from_ = self.__from, to=to)
+            if self.__enableLog:
+                print("[SMS Sent]","To",to,"Body",body)
         except Exception as e:
+            print("[SMS Failed]","To",to,"Body",body)
             print("Failed to send sms to",to,"error:",e)
 
     def __generateOTP(self,otpLength):
@@ -27,4 +31,7 @@ class Notify:
         body = "Enter "+ otp + " to verify your number"
         self.send_sms(to,body)
         return '-1' if self.__status is None else otp
+    
+    def disableLog(self):
+        self.__enableLog = False
 
