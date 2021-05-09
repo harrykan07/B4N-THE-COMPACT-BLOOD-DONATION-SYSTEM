@@ -27,21 +27,21 @@ class RequestedRecord(models.Model):
         choices=blood_choices
         )
     units = models.IntegerField()
-    location = LocationField(blank=True, null=True, map_attrs={"style": "mapbox://styles/mightysharky/cjwgnjzr004bu1dnpw8kzxa72", "center": (17.031645, 51.106715)})
+    location = LocationField(blank=True, null=True, map_attrs={"style": "mapbox://styles/mightysharky/cjwgnjzr004bu1dnpw8kzxa72", "center": (77.21987228649732,28.630981392199445)})
     address = AddressAutoHiddenField(blank=True, null=True)
     contact_number = models.CharField(max_length=10)
     # date = models.DateField(auto_now=True)
     created_at = models.DateTimeField(blank=True, null=True, auto_now_add=True)
     status = models.CharField(blank=True, null=True,max_length=10)
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 class Points(models.Model):
     donor_id = models.ForeignKey(DonorList,on_delete=models.CASCADE)
     req_id = models.ForeignKey(RequestedRecord,on_delete=models.CASCADE)
     points = models.IntegerField()
     def __str__(self):
-        return self.id + " donor is " + self.donor_id + " req is " + self.req_id + " having points " + self.points
+        return str(self.id) + " donor is " + str(self.donor_id.id) + " req is " + str(self.req_id.id) + " having points " + str(self.points)
 
 # class Friends(models.Model):
 #     donor_id = models.ForeignKey(DonorList,on_delete=models.CASCADE)

@@ -13,7 +13,7 @@ aToken = os.getenv('aToken')
 twilioNumber = os.getenv('twilioNumber')
 domain = os.getenv('domain')
 domain = domain + 'search/donorupdate/'
-send_sms = False
+send_sms = True
 maximum_sms = 2
 distanceConstant = 50 #radius of area to cover in KM
 
