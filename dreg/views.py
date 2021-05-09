@@ -8,11 +8,11 @@ from django.views.generic import CreateView
 
 
 
-# class AddPlaceView(CreateView):
-#     model = DonorList
-#     template_name = "register.html"
-#     # success_url = "/index/"
-#     fields = ("location", "address")
+class AddPlaceView(CreateView):
+    model = DonorList
+    template_name = "register.html"
+    # success_url = "/index/"
+    fields = ("location", "address")
 
 
 #MAP END

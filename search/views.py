@@ -11,7 +11,7 @@ from django.core.files.storage import FileSystemStorage
 from .NotifyDonor import increaseArea
 
 #FOR MAPS
-from django.views.generic import CreateView, UpdateView, ListView
+from django.views.generic import CreateView
 
 
 
@@ -20,10 +20,6 @@ class AddPlaceView(CreateView):
     template_name = "search.html"
     # success_url = "/index/"
     fields = ("location", "address")
-
-# def pendingRequestProcessor():
-#     threading.Timer(5,increaseArea).start()
-# pendingRequestProcessor()
 
 def searchdisplay(request):
     forms = DonorSearch()
