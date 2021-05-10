@@ -36,5 +36,5 @@ Scheduler.run_continuously = run_continuously
 
 def start_scheduler():
     scheduler = Scheduler()
-    scheduler.every(300).second.do(increaseArea)
+    scheduler.every(300).seconds.do(increaseArea)
     scheduler.run_continuously()

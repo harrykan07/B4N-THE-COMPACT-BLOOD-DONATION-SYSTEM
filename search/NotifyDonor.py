@@ -54,7 +54,7 @@ def sendSMSToEligibleDonors(eligibleDonors,requestRec):
     for ind in range(min(units,len(eligibleDonors),maximum_sms)):
         donor = eligibleDonors[ind]
         pointsID = Points.objects.create(donor_id=donor,req_id=requestRec,points=0)
-        msg = "Someone needs "+blood_group+" blood. Please contact "+str(contact_number)+ " after donation Kindly update info on "+domain+str(pointsID.id)
+        msg = "Someone needs "+blood_group.upper()+" blood. Please contact "+str(contact_number)+ " after donation Kindly update info on "+domain+str(pointsID.id)
         dPh = str(donor.phone_number)
         if dPh[0]!="+":
             dPh = "+91"+dPh
