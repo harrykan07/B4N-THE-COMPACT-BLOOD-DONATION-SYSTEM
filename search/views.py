@@ -8,7 +8,7 @@ from .models import Points
 from .models import RequestedRecord
 from .NotifyDonor import notify_donor
 from django.core.files.storage import FileSystemStorage
-from .NotifyDonor import increaseArea
+from .dashboardUtils import getDonationRecord
 
 #FOR MAPS
 from django.views.generic import CreateView

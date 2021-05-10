@@ -1,6 +1,12 @@
 from django.db import models
 from mapbox_location_field.models import LocationField, AddressAutoHiddenField
 
+class DonationDate(models.Model):
+    date = models.DateTimeField()
+    def __str__(self):
+        return str(self.date)
+
+
 #Donor resistration forms data table
 class DonorList(models.Model):
     name = models.CharField(max_length = 50, blank=True, null=True)
@@ -85,7 +91,9 @@ class DonorList(models.Model):
         max_length=4, blank=True, null=True,
         choices=willing_to_donate_plasma_choices,
         )
-
+    donation_record = models.ManyToManyField(
+        DonationDate
+    )
 
 
     def __str__(self):

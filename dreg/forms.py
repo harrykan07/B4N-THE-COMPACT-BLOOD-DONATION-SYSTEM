@@ -27,3 +27,4 @@ class DonorRegistration(ModelForm):
     password = forms.CharField(max_length=32, widget=forms.PasswordInput(
         attrs={'class':'form-control', 'placeholder':'Enter password used for login','required':'True'}
     ))
+    exclude = ['donation_record']

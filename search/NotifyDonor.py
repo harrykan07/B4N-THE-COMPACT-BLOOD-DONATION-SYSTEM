@@ -1,8 +1,6 @@
 import os
-import threading
 from datetime import datetime
 from math import radians, cos, sin, asin, sqrt
-from django.http import request
 from dreg .models import DonorList
 from .models import Points
 from .models import RequestedRecord
