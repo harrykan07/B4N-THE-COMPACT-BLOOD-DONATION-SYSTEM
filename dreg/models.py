@@ -35,7 +35,8 @@ class DonorList(models.Model):
     location = LocationField(blank=True, null=True, map_attrs={"style": "mapbox://styles/mightysharky/cjwgnjzr004bu1dnpw8kzxa72", "center": (77.21987228649732,28.630981392199445)})
     created_at = models.DateTimeField(blank=True, null=True, auto_now_add=True)
     address = AddressAutoHiddenField(blank=True, null=True)
-    last_donate_date = models.CharField(max_length=50, blank=True, null=True)
+    last_donate_date = models.DateField(blank=True, null=True)
+    # last_donate_date = models.CharField(max_length=50, blank=True, null=True)
     any_diseases_choices=[
         ("yes","Yes"),
         ("no","No"),
