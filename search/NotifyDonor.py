@@ -13,9 +13,9 @@ aToken = os.getenv('aToken')
 twilioNumber = os.getenv('twilioNumber')
 domain = os.getenv('domain')
 domain = domain + 'search/donorupdate/'
-send_sms = False
+send_sms = True
 maximum_sms = 2
-distanceConstant = 50 #radius of area to cover in KM
+distanceConstant = 20 #radius of area to cover in KM
 
 def distance(lat1, lat2, lon1, lon2):
     lon1 = radians(lon1)
@@ -46,7 +46,7 @@ def findEligibleDonors(blood_group,minimumDistance,maximumDistance,lat1,lon1):
     return eligibleDonors
 
 def sendSMSToEligibleDonors(eligibleDonors,requestRec):
-    # print(eligibleDonors)
+    print(eligibleDonors)
     notifyObj = Notify(aid,aToken,twilioNumber)
     units = requestRec.units
     blood_group = requestRec.blood_group
@@ -98,7 +98,8 @@ def notify_donor(receipt,forms):
     if donors.count() == 0:
         print("No donor found")
     else:
-        lat1,lon1 = map(float, city.split(","))
+        if city:
+            lat1,lon1 = map(float, city.split(","))
         
         # changing status to pending before submitting
         forms.save(commit=False)

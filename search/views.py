@@ -105,7 +105,7 @@ def updatepoints(request):
         return render(request,"updatepoints.html",{'check':True,'msg':msg,'bClass':bClass})
     return render(request,"updatepoints.html")
 
-@login_required
+@login_required 
 def showpoints(request):
     try:
         donorIns = DonorList.objects.get(pk=request.user.last_name)
