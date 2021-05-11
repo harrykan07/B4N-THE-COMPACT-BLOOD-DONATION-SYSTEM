@@ -11,6 +11,8 @@ class DonorSearch(ModelForm):
             'blood_group' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
             'units' : forms.NumberInput(attrs={'class':'form-control','max':'20', 'required':'True'}),
             'contact_number' : forms.TextInput(attrs={'class':'form-control', 'required':'True'}),
+            'emergency' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
+            'required_date' : forms.DateInput(attrs={'class':'form-control', 'type':'date', 'required':'True'}),
         }
         exclude = ['status']
 

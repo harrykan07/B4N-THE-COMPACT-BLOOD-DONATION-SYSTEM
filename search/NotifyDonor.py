@@ -93,6 +93,8 @@ def notify_donor(receipt,forms):
     units = receipt["units"]
     addr = receipt["address"]
     contact_number = receipt["contact_number"]
+    emergency = receipt["emergency"]
+    req_date = receipt["required_date"]
     donors = DonorList.objects.filter(
         blood_group__iexact = blood_group)
     if donors.count() == 0:

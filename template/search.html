@@ -10,7 +10,7 @@
     {% include_jquery %}
     <div class="container-fluid">
       <div class="jumbotron">
-      <img src="{{ logo_img.logo_image.url }}" class="img-fluid rounded-circle mx-auto d-block" alt="Logo">
+      <div class="text-center"><img src="{{ logo_img.logo_image.url }}" style="width: auto; height: 195px;" class="img-fluid rounded-circle " alt="Logo"></div>
       <br />
       <form action="{% url 'donorlistsite' %}" method="POST">
           {% csrf_token %}
@@ -23,5 +23,7 @@
       </div>
     </div>
 
+    
+   
 
    {% endblock  %}
