@@ -1,9 +1,16 @@
 from django.shortcuts import render
 from .models import HomePageSlider, HomePageBody
+from search .dashboardUtils import getDonationRecord, nextDonationDate
 
 
 def loginland(request):
-    return render(request, 'registration/afterlogin.html')
+    details = getDonationRecord(request.user.last_name)
+    nextDonation = nextDonationDate(request.user.last_name)
+    context = {
+        'donations' : details,
+        'nextDonation' : nextDonation
+    }
+    return render(request, 'registration/afterlogin.html',context)
 
 
 def homedisplay(request):

@@ -5,11 +5,21 @@
 <div class="container">
  <div class="jumbotron text-center">
          <h1> Hello Donor, this is your personal space. Enjoy!!</h1>
-
+		 <h2 id="nextDonation" class="text-danger"></h2>
         <div class="row mt-5 justify-content-center img-fluid">
          <div id="piechart" class="">
          </div>
          </div>
+
+		 <!-- donation history -->
+		 <div>
+			 <h2>Donation History</h2>
+			 <ul class="list-group list-group-flush">
+				 {% for donationDate in donations %}
+				 <li class="list-group-item">{{donationDate}}</li>
+				 {% endfor %}
+			 </ul>
+		 </div>
 
 
          <div id="chartContainer" style="height: 300px; width: 100%;" class="mt-5"></div>
@@ -134,6 +144,35 @@ function toggleDataSeries(e) {
 	}
 	e.chart.render();
 }
+
+//timer countdown script
+var countDownDate = new Date("{{nextDonation}}");
+var countDownInterval = setInterval(function() {
+
+// Get today's date and time
+let now = new Date().getTime();
+
+// Find the distance between now and the count down date
+let distance = countDownDate - now;
+
+// Time calculations for days, hours, minutes and seconds
+let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+// Display the result in the element with id="demo"
+document.getElementById("nextDonation").innerHTML = "You will eligible for donation in " + days + "d " + hours + "h "
++ minutes + "m " + seconds + "s ";
+
+// If the count down is finished, write some text
+if (distance < 0) {
+  clearInterval(countDownInterval);
+  document.getElementById("nextDonation").innerHTML = "You are eligible for donation";
+  document.getElementById("nextDonation").classList.remove("text-danger");
+  document.getElementById("nextDonation").classList.add("text-success");
+}
+}, 1000);
 
 }
 </script>
