@@ -79,7 +79,7 @@ def donorupdate(request, cid):
         #changing status to donor since donor may have accepted request
         RequestedRecord.objects.filter(pk=req_id).update(status="donor")
         context = {
-            'donor' : donor,
+            'donor' : donor, 
             'receipt' : receipt
         }
         return render(request, 'donorupdate.html', context)
