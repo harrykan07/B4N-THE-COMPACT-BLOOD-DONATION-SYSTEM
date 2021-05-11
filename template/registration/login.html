@@ -30,12 +30,26 @@
         </div>
 
     <input type="submit" value="Login" class="btn btn-primary mb-5"/>
+
     <input type="hidden" name="next" value="{{ next }}" />
+
   </form>
+
+
 
   {# Assumes you setup the password_reset view in your URLconf #}
   <p><a href="{% url 'password_reset' %}">Forgot password?</a></p>
+  
+  
+  <br />
+  <div class="text-center">
+      <p><strong>-- OR --</strong></p>
+      <a href="{% url 'social:begin' 'facebook' %}" style="background-color: #3B5998;color: white;"class="fb btn" >
+          <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+         </a>
   </div>
+  </div>
+
   </div>
 
 {% endblock %}

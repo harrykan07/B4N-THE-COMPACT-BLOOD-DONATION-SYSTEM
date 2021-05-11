@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'dabout',
     'contact',
     'mapbox_location_field',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'bloodsbanks.urls'
@@ -72,6 +74,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',  # <-- Here
+                'social_django.context_processors.login_redirect', # <-- Here
             ],
         },
     },
@@ -109,6 +113,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 LOGIN_REDIRECT_URL = '/loginland'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -139,3 +151,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 MAPBOX_KEY = "pk.eyJ1IjoidXNlci04OTA3ODgiLCJhIjoiY2tvZWN2aDUzMDVobDJwanpleG1xcDU0byJ9.1j277HsrvMVFo7EIqvg9BA"
+
+
+
+SOCIAL_AUTH_FACEBOOK_KEY = '202198684912768'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = 'c938b3c2be9d5f897e3b34531ac00068'  # App Secret

@@ -10,11 +10,7 @@
     {% include_jquery %}
     <div class="container-fluid">
       <div class="jumbotron">
-<<<<<<< HEAD
       <div class="text-center"><img src="{{ logo_img.logo_image.url }}" style="width: auto; height: 195px;" class="img-fluid rounded-circle " alt="Logo"></div>
-=======
-      <img src="{{ logo_img.logo_image.url }}"  style="width: auto; height: 195px;" class="img-fluid rounded-circle mx-auto d-block" alt="Logo">
->>>>>>> e31fa913a993ec4378227d496ef2a2367df8a3c3
       <br />
       <form action="{% url 'donorlistsite' %}" method="POST">
           {% csrf_token %}
@@ -27,10 +23,6 @@
       </div>
     </div>
 
-<<<<<<< HEAD
-    
-   
-=======
     <script>
       document.querySelector("#id_required_date").parentElement.style.display = "none";
       document.querySelector("#id_emergency").addEventListener("change",
@@ -46,6 +38,5 @@
         }
       )
     </script>
->>>>>>> e31fa913a993ec4378227d496ef2a2367df8a3c3
 
    {% endblock  %}
