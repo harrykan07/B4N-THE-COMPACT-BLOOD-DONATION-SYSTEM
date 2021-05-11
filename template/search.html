@@ -10,7 +10,7 @@
     {% include_jquery %}
     <div class="container-fluid">
       <div class="jumbotron">
-      <img src="{{ logo_img.logo_image.url }}" class="img-fluid rounded-circle mx-auto d-block" alt="Logo">
+      <img src="{{ logo_img.logo_image.url }}"  style="width: auto; height: 195px;" class="img-fluid rounded-circle mx-auto d-block" alt="Logo">
       <br />
       <form action="{% url 'donorlistsite' %}" method="POST">
           {% csrf_token %}
@@ -23,5 +23,20 @@
       </div>
     </div>
 
+    <script>
+      document.querySelector("#id_required_date").parentElement.style.display = "none";
+      document.querySelector("#id_emergency").addEventListener("change",
+      function() {
+        if (this.value=="urgently_required") {
+          document.querySelector("#id_required_date").required = false;
+          document.querySelector("#id_required_date").parentElement.style.display = "none";
+        }
+        else if (this.value=="pick_a_date") {
+            document.querySelector("#id_required_date").required = true;
+            document.querySelector("#id_required_date").parentElement.style.display = "block";
+          }
+        }
+      )
+    </script>
 
    {% endblock  %}

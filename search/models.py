@@ -31,6 +31,15 @@ class RequestedRecord(models.Model):
     address = AddressAutoHiddenField(blank=True, null=True)
     contact_number = models.CharField(max_length=10)
     # date = models.DateField(auto_now=True)
+    emergency_choices=[
+        ('urgently_required',"Urgently Required"),
+        ("pick_a_date","Pick a date"),
+    ]
+    emergency = models.CharField(
+        max_length=18, blank=True, null=True,
+        choices=emergency_choices,
+        )
+    required_date = models.DateField(blank=True, null=True)
     created_at = models.DateTimeField(blank=True, null=True, auto_now_add=True)
     status = models.CharField(blank=True, null=True,max_length=10)
     def __str__(self):
