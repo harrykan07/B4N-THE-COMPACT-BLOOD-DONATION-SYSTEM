@@ -50,7 +50,11 @@ def donorlistdetail(request, email):
 
 # @login_required
 def donorupdate(request, cid):
-    detail = Points.objects.get(pk=cid)
+    try:
+        detail = Points.objects.get(pk=cid)
+    except:
+        # if given cid record is not exist
+        return render(request,'errorPage.html')
     req = detail.req_id
     if req.status == "donor":
         return render(request, 'donorAccepted.html')
@@ -73,8 +77,8 @@ def donorupdate(request, cid):
         # if donor_id != request.user.last_name:
         #     return render(request, 'errorPage.html')
         req_id = detail.req_id.id
-        donor = DonorList.objects.get(pk=donor_id)
-        receipt = RequestedRecord.objects.get(pk=req_id)
+        donor = detail.donor_id
+        receipt = detail.req_id
 
         #changing status to donor since donor may have accepted request
         RequestedRecord.objects.filter(pk=req_id).update(status="donor")

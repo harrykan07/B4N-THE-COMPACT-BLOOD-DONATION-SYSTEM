@@ -6,6 +6,7 @@ from search .dashboardUtils import getDonationRecord, nextDonationDate
 def loginland(request):
     details = getDonationRecord(request.user.last_name)
     nextDonation = nextDonationDate(request.user.last_name)
+    print(nextDonation)
     context = {
         'donations' : details,
         'nextDonation' : nextDonation
