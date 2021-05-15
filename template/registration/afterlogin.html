@@ -14,11 +14,15 @@
 		 <!-- donation history -->
 		 <div>
 			 <h2>Donation History</h2>
+			 {% if donations|length == 0 %}
+			 <h3> No donation record found! </h3>
+			 {% else %}
 			 <ul class="list-group list-group-flush">
 				 {% for donationDate in donations %}
 				 <li class="list-group-item">{{donationDate}}</li>
 				 {% endfor %}
 			 </ul>
+			 {% endif %}
 		 </div>
 
 
@@ -145,37 +149,6 @@ window.onload = function () {
 		e.chart.render();
 	}
 
-<<<<<<< HEAD
-//timer countdown script
-var countDownDate = new Date("{{nextDonation}}");
-var countDownInterval = setInterval(function() {
-
-// Get today's date and time
-let now = new Date().getTime();
-
-// Find the distance between now and the count down date
-let distance = countDownDate - now;
-
-// Time calculations for days, hours, minutes and seconds
-let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-// Display the result in the element with id="demo"
-document.getElementById("nextDonation").innerHTML = "You will eligible for donation in " + days + "d " + hours + "h "
-+ minutes + "m " + seconds + "s ";
-
-// If the count down is finished, write some text
-if (distance < 0) {
-  clearInterval(countDownInterval);
-  document.getElementById("nextDonation").innerHTML = "You are eligible for donation";
-  document.getElementById("nextDonation").classList.remove("text-danger");
-  document.getElementById("nextDonation").classList.add("text-success");
-}
-}, 1000);
-
-=======
 	//timer countdown script
 	var countDownDate = new Date("{{nextDonation}}");
 	var countDownInterval = setInterval(function() {
@@ -203,7 +176,6 @@ if (distance < 0) {
 			document.getElementById("nextDonation").classList.add("text-success");
 		}
 	}, 1000);
->>>>>>> e31fa913a993ec4378227d496ef2a2367df8a3c3
 }
 </script>
  {% endblock %}
